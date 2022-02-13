@@ -100,7 +100,7 @@ export class VoiceAudioService {
     }
     let audioArrayRequest = voiceRequest.pipe(
       mergeMap((value, index) => {
-        return  this.http.get<Blob>(value,getOptions)
+        return  this.http.get<Blob>(value + "&" + new Date().getTime().toString(),getOptions)
       }),
       mergeMap(value => {
         return from(value.arrayBuffer())

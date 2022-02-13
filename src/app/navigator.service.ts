@@ -158,8 +158,8 @@ export class NavigatorService {
       ///headingNumber = this.headingCalc(crd.latitude,crd.longitude)
       if(crd.heading){
         this.sensorHeadingBuffer.push(crd.heading)
-        if(this.sensorHeadingBuffer.length > 3){
-          let buf = this.sensorHeadingBuffer.slice(-3)
+        if(this.sensorHeadingBuffer.length > 5){
+          let buf = this.sensorHeadingBuffer.slice(-5)
           this.sensorHeadingBuffer.shift()
           if((Math.max(...buf) - Math.min(...buf)) < 30){
             instantHeadingNumber = crd.heading
